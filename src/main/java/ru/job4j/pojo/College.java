@@ -2,15 +2,15 @@ package ru.job4j.pojo;
 
 import java.util.Date;
 
-public class College extends Student {
+public class College {
     public static void main(String[] args) {
-        College college = new College();
-        college.setFullName("Иванов Иван Иванович");
-        college.setGroup("404b");
-        college.setAdmission(new Date());
+        Student student = new Student();
+        student.setFullName("Иванов Иван Иванович");
+        student.setGroup("404b");
+        student.setAdmission(new Date());
 
-        System.out.println("ФИО студента: " + college.getFullName() + System.lineSeparator()
-                            + "Группа студента: " + college.getGroup() + System.lineSeparator()
-                            + "Дата поступления: " + college.getAdmission());
+        System.out.println("ФИО студента: " + student.getFullName() + System.lineSeparator()
+                            + "Группа студента: " + student.getGroup() + System.lineSeparator()
+                            + "Дата поступления: " + student.getAdmission());
     }
 }
