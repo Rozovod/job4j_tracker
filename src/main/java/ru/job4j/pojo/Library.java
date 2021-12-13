@@ -1,6 +1,7 @@
 package ru.job4j.pojo;
 
 public class Library {
+
     public static void main(String[] args) {
         Book book1 = new Book("New Earth", 268);
         Book book2 = new Book("Ancient path. White clouds", 656);
