@@ -16,7 +16,7 @@ public class Tracker {
     public Item[] findAll() {
         Item[] itemsWithoutNull = new Item[items.length];
         int size = 0;
-        for ( int i = 0; i < items.length; i++) {
+        for (int i = 0; i < items.length; i++) {
             Item item1 = items[i];
             if (item1 != null) {
                 itemsWithoutNull[size] = item1;
