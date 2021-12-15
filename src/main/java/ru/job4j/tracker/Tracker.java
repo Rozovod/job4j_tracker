@@ -14,31 +14,19 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        Item[] itemsWithoutNull = new Item[items.length];
-        int size = 0;
-        for (int i = 0; i < items.length; i++) {
-            Item item1 = items[i];
-            if (item1 != null) {
-                itemsWithoutNull[size] = item1;
-                size++;
-            }
-        }
-        itemsWithoutNull = Arrays.copyOf(itemsWithoutNull, size);
-        return itemsWithoutNull;
+        return Arrays.copyOf(items, size);
     }
 
     public Item[] findByName(String key) {
-        Item[] itemsFindName = new Item[items.length];
-        int size = 0;
-        for (int i = 0; i < items.length; i++) {
-            Item item2 = items[i];
-            if (item2 != null && key.equals(item2.getName())) {
-                itemsFindName[size] = item2;
-                size++;
+        Item[] result = new Item[size];
+        int count = 0;
+        for (int i = 0; i < size; i++) {
+            Item item = items[i];
+            if (key.equals(item.getName())) {
+                result[count++] = item;
             }
         }
-        itemsFindName = Arrays.copyOf(itemsFindName, size);
-        return itemsFindName;
+        return Arrays.copyOf(result, count);
     }
 
     public Item findById(int id) {
