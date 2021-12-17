@@ -15,10 +15,10 @@ public class Bus implements Transport {
     }
 
     @Override
-    public int refuel(int fuel) {
-        int sum = 0;
-        int price = 50;
-        if (fuel > 0) {
+    public double refuel(double fuel) {
+        double sum = 0.0;
+        double price = 50.0;
+        if (fuel > 0.0) {
             sum = price * fuel;
         }
         return sum;
