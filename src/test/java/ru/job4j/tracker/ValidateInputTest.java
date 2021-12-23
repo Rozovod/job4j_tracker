@@ -31,12 +31,12 @@ public class ValidateInputTest {
         Output out = new StubOutput();
         Input in = new StubInput(new String[]{"1", "2", "3"});
         ValidateInput input = new ValidateInput(out, in);
-        int selected1 = input.askInt("Select: ");
-        assertThat(selected1, is(1));
-        int selected2 = input.askInt("Select: ");
-        assertThat(selected2, is(2));
-        int selected3 = input.askInt("Select: ");
-        assertThat(selected3, is(3));
+        int selected = input.askInt("Select: ");
+        assertThat(selected, is(1));
+        selected = input.askInt("Select: ");
+        assertThat(selected, is(2));
+        selected = input.askInt("Select: ");
+        assertThat(selected, is(3));
     }
 
     @Test
