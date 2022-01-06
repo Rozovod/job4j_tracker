@@ -11,13 +11,9 @@ public class UniqueText {
         for (String word : origin) {
             check.add(word);
         }
-        HashSet<String> checkTxt = new HashSet<>();
         for (String line : text) {
-            if (check.contains(line)) {
-                checkTxt.add(line);
-            }
+            rsl = check.contains(line);
         }
-        rsl = check.equals(checkTxt);
         return rsl;
     }
 }
