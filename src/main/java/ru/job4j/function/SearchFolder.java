@@ -6,8 +6,6 @@ import java.util.function.Predicate;
 
 public class SearchFolder {
 
-    Predicate<Folder> pred = f -> f.getSize() > 100 || f.getName().contains("bug");
-
     public static List<Folder> filter(List<Folder> list, Predicate<Folder> pred) {
         List<Folder> rsl = new ArrayList<>();
         for (Folder f : list) {
