@@ -10,7 +10,7 @@ public class ListToMap {
                 .collect(Collectors.toMap(
                         Student::getSurname,
                         s -> s,
-                        (k, s) -> k.equals(s) ? s : k
+                        (existing, replacement) -> existing
                 ));
     }
 }
