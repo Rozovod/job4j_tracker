@@ -99,7 +99,7 @@ public class SqlTracker implements Store, AutoCloseable {
     @Override
     public List<Item> findByName(String key) {
         List<Item> items = new ArrayList<>();
-        try (PreparedStatement st = cn.prepareStatement("select name from items where name like '?%'")) {
+        try (PreparedStatement st = cn.prepareStatement("select * from items where name like ?")) {
             st.setString(1, key);
             try (ResultSet rsl = st.executeQuery()) {
                 while (rsl.next()) {

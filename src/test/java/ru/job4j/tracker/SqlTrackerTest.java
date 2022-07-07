@@ -63,7 +63,7 @@ public class SqlTrackerTest {
         Item newItem = new Item("newTest");
         tracker.add(item);
         tracker.replace(item.getId(), newItem);
-        assertThat(tracker.findById(newItem.getId()), is(newItem));
+        assertThat(tracker.findById(item.getId()).getName(), is(newItem.getName()));
     }
 
     @Test
@@ -92,6 +92,6 @@ public class SqlTrackerTest {
         Item itemSecond = new Item("test2");
         tracker.add(itemFirst);
         tracker.add(itemSecond);
-        assertThat(tracker.findByName("test2"), is(itemSecond));
+        assertThat(tracker.findByName("test2"), is(List.of(itemSecond)));
     }
 }
