@@ -10,9 +10,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Properties;
 
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 public class SqlTrackerTest {
@@ -52,5 +54,44 @@ public class SqlTrackerTest {
         Item item = new Item("item");
         tracker.add(item);
         assertThat(tracker.findById(item.getId()), is(item));
+    }
+
+    @Test
+    public void whenReplaceThenNewItem() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item = new Item("test");
+        Item newItem = new Item("newTest");
+        tracker.add(item);
+        tracker.replace(item.getId(), newItem);
+        assertThat(tracker.findById(newItem.getId()), is(newItem));
+    }
+
+    @Test
+    public void whenDeleteThenEmpty() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item item = new Item("test");
+        tracker.add(item);
+        tracker.delete(item.getId());
+        assertThat(tracker.findById(item.getId()), is(nullValue()));
+    }
+
+    @Test
+    public void whenFindAllThenList() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item itemFirst = new Item("test1");
+        Item itemSecond = new Item("test2");
+        tracker.add(itemFirst);
+        tracker.add(itemSecond);
+        assertThat(tracker.findAll(), is(List.of(itemFirst, itemSecond)));
+    }
+
+    @Test
+    public void whenFindByName() {
+        SqlTracker tracker = new SqlTracker(connection);
+        Item itemFirst = new Item("test1");
+        Item itemSecond = new Item("test2");
+        tracker.add(itemFirst);
+        tracker.add(itemSecond);
+        assertThat(tracker.findByName("test2"), is(itemSecond));
     }
 }
