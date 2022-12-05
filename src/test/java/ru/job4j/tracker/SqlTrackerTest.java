@@ -13,8 +13,6 @@ import java.util.Properties;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
-
-@Ignore
 public class SqlTrackerTest {
     private static Connection connection;
 
