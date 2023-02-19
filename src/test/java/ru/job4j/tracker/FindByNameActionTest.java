@@ -38,7 +38,7 @@ public class FindByNameActionTest {
         findByNameAction.execute(input, tracker);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is("=== Find items by name ===" + ln
-                + "Заявки с именем: " + "New Third Item" + " не найдены."+ ln));
+                + "Заявки с именем: " + "New Third Item" + " не найдены." + ln));
         assertThat(tracker.findByName("New Third Item"), is(List.of()));
     }
 }
